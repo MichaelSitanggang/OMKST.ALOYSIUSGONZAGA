@@ -1,0 +1,613 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family:'Courier New', Courier, monospace
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+}
+
+
+/* Navbar */
+.navbar {   
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    z-index: 9999;
+}
+.logo-title img {
+    width: 100px; /* Pastikan ukuran lebar */
+    height: 50px; /* Pastikan ukuran tinggi */
+    border-radius: 50%; /* Membuat bentuk bulat */
+    object-fit: cover; /* Agar logo tetap proporsional */
+}
+
+.logo-title h1 {
+    margin: 0;
+    color: white;
+    font-family: 'Courier New', Courier, monospace;
+    white-space: nowrap; /* Cegah teks turun ke baris baru */
+    font-size: 18px; /* Sesuaikan ukuran font */
+    line-height: 1.5; /* Atur tinggi baris */
+}
+.logo-title{
+    margin-right: 280px;
+}
+
+.hamburger {
+    display: none; /* Default: sembunyikan hamburger */
+    flex-direction: column;
+    cursor: pointer;
+    z-index: 9999;
+}
+
+.hamburger div {
+    width: 25px;
+    height: 3px;
+    background-color: black;
+    margin: 3px 0;
+    z-index: 9999;
+}
+
+.menu {
+    display: flex;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    z-index: 9999;
+}
+
+.menu li {
+    margin-left: 20px;
+    z-index: 9999;
+}
+
+.menu li a {
+    text-decoration: none;
+    color: white;
+    font-size: 18px;
+    z-index: 9999;
+}
+
+.sidebar {
+    position: fixed;
+    top: 0;
+    right: -300px;
+    width: 300px;
+    height: 100%;
+    background-color: white;
+    box-shadow: -2px 0 5px rgba(0, 0, 0, 0.3);
+    transition: right 0.3s ease;
+    padding: 20px;
+    box-sizing: border-box;
+    z-index: 9999;
+}
+
+.sidebar .close-btn {
+    font-size: 24px;
+    cursor: pointer;
+    margin-bottom: 20px;
+    z-index: 9999;
+}
+
+.sidebar ul {
+    list-style-type: none;
+    padding: 0;
+    z-index: 9999;
+}
+
+.sidebar ul li {
+    margin: 15px 0;
+    z-index: 9999;
+}
+
+.sidebar ul li a {
+    text-decoration: none;
+    color: black;
+    font-size: 18px;
+    z-index: 9999;
+}
+
+.sidebar .resume-btn {
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #f0f0f0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    font-size: 16px;
+    z-index: 9999;
+}
+
+.sidebar .resume-btn:hover {
+    background-color: #ddd;
+    z-index: 9999;
+}
+
+.sidebar.show {
+    right: 0;
+    z-index: 9999;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .menu {
+        display: none; /* Sembunyikan menu biasa */
+    }
+
+    .hamburger {
+        display: flex; /* Tampilkan hamburger */
+    }
+}
+
+@media (min-width: 769px) {
+    .hamburger {
+        display: none; /* Sembunyikan hamburger */
+    }
+
+    .menu {
+        display: flex; /* Tampilkan menu biasa */
+    }
+}
+
+/* ============================================
+   Hero Section Styles
+============================================= */
+.hero {
+    position: relative;
+    background: url('fotobackutama.jpeg') no-repeat center center/cover;
+    height: 70vh;
+    width: 90%;
+    margin: 0 auto;
+    border-radius: 15px;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background-size: cover; /* Pastikan gambar mencakup seluruh area */
+    background-position: center center; /* Memastikan gambar terpusat */
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+}
+
+.hero h2, .hero p, .hero .btn {
+    position: relative;
+    z-index: 1;
+}
+
+.hero h2 {
+    font-size: 3rem;
+    margin-bottom: 10px;
+}
+
+.hero p {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+}
+
+.hero .btn {
+    background-color: #f4a261;
+    padding: 20px 30px;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.hero .btn:hover {
+    background-color: #e76f51;
+}
+
+
+/* Logo dan Title */
+.logo-title {
+    display: flex;
+    align-items: center;
+}
+
+.logo {
+    width: 40px;
+    height: 40px;
+    margin-right: 10px;
+}
+
+
+
+/* Container */
+.container {
+    width: 90%;
+    margin: 10px auto;
+    padding: 20px;
+    text-align: center;
+}
+
+/* Media Queries untuk layar kecil */
+@media (max-width: 768px) {
+    .navbar ul {
+        flex-direction: column; /* Supaya link nav menumpuk ke bawah */
+        margin: 0;
+        padding: 0;
+        width: 100%;
+    }
+
+    .navbar ul li {
+        margin-right: 0;
+        margin-bottom: 10px; /* Jarak antar item nav di layar kecil */
+        text-align: center;
+    }
+
+    .navbar h1 {
+        margin: 0 auto; /* Supaya judul berada di tengah */
+        text-align: center;
+    }
+
+    .hero {
+        background-size: cover; 
+        background-position: center;
+        padding: 0 20px;
+
+        width: 95%;/* Gambar mengambil lebar penuh */
+        
+    }
+}
+
+.navbar {
+    padding: 20px;
+    background-color:gray; /* Gray background */
+    display: flex; 
+    justify-content: center;
+    align-items: center; 
+    text-align: center;
+    position: relative;
+}
+
+.navbar h1 {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    float: left;
+    margin-right: 180px;
+}
+
+.navbar ul {
+    float: right;
+    list-style: none;
+    margin-left: 600px;
+}
+
+.navbar ul li {
+    display: inline;
+    margin-right: 20px;
+}
+
+.navbar ul li a {
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.hero {
+    /* background: url('hero-image.jpg') no-repeat center center/cover; */
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.hero h2 {
+    font-size: 3rem;
+    margin-bottom: 10px;
+}
+
+.hero p {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+}
+
+.hero .btn {
+    background-color: #f4a261;
+    padding: 10px 20px;
+
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+.about, .events, .contact {
+    padding: 50px 0;
+}
+
+.about h2, .events h2, .contact h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.events .event-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.event {
+    background-color: #f4a261;
+    padding: 20px;
+    border-radius: 8px;
+}
+
+.contact form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.contact form input, .contact form textarea {
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.contact form button {
+    background-color: #f4a261;
+    padding: 10px;
+    
+    border: none;
+    cursor: pointer;
+}
+
+footer {
+    background-color: #333;
+    
+    text-align: center;
+    padding: 20px 0;
+    margin-top: 20px;
+}
+
+@media (max-width: 768px) {
+    .hero h2 {
+        font-size: 2rem;
+    }
+
+    .navbar ul {
+        float: none;
+        text-align: center;
+    }
+
+    .navbar ul li {
+        display: block;
+        margin: 10px 0;
+    }
+}
+
+
+.masa-natal {
+    margin-top: 50px;
+    padding: 20px 0;
+    background-color: #e9ecef;
+    border-radius: 20px;
+}
+
+.natal-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap; /* Agar layout responsif */
+}
+
+.natal-image {
+    width: 40%; /* Ukuran gambar */
+    max-width: 400px;
+    height: auto;
+    margin-right: 20px; /* Jarak antara gambar dan teks */
+    border-radius: 8px; /* Sudut gambar melengkung */
+}
+
+.natal-content {
+    width: 55%;
+}
+
+.natal-content h3 {
+    font-size: 24px;
+    color: #333;
+}
+
+.natal-content p {
+    font-size: 16px;
+    color: #666;
+    line-height: 1.6;
+}
+
+@media (max-width: 768px) {
+    .natal-container {
+        flex-direction: column; /* Gambar dan teks ditumpuk saat layar kecil */
+        text-align: center;
+    }
+
+    .natal-image {
+        margin: 0 auto 20px auto;
+        width: 100%;
+    }
+
+    .natal-content {
+        width: 100%;
+    }
+}
+
+/* masa paskah */
+/* Bagian Masa Paskah */
+.masa-paskah {
+    margin-top: 50px;
+    padding: 20px 0;
+    background-color: #e9ecef; /* Warna latar belakang untuk perbedaan */
+    border-radius: 20px;
+}
+
+.paskah-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap; /* Supaya responsif */
+}
+
+.paskah-content {
+    width: 55%;
+}
+
+.paskah-image {
+    width: 40%; /* Ukuran gambar */
+    max-width: 400px;
+    height: auto;
+    margin-left: 20px; /* Jarak antara teks dan gambar */
+    border-radius: 8px;
+}
+
+.paskah-content h3 {
+    font-size: 24px;
+    color: #333;
+}
+
+.paskah-content p {
+    font-size: 16px;
+    color: #666;
+    line-height: 1.6;
+}
+
+@media (max-width: 768px) {
+    .paskah-container {
+        flex-direction: column-reverse; /* Teks di atas gambar saat di layar kecil */
+        text-align: center;
+    }
+
+    .paskah-image {
+        margin: 20px auto 0 auto;
+        width: 100%;
+    }
+
+    .paskah-content {
+        width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .paskah-content h3 {
+        font-size: 20px; /* Kecilkan font untuk layar lebih kecil */
+    }
+
+    .paskah-content p {
+        font-size: 14px;
+    }
+
+    .paskah-image {
+        width: 90%; /* Gambar lebih kecil di layar sangat kecil */
+    }
+}
+
+/* Foto OMK Carousel */
+.carousel-section {
+ /* Anda bisa ganti warna ini dengan warna latar belakang yang diinginkan */
+    padding: 50px 0;
+    text-align: center;
+}
+
+.carousel {
+    position: relative;
+    width: 80%;
+    margin: 0 auto;
+    overflow: hidden;
+    border-radius: 10px;
+}
+
+/* Track carousel yang bergerak */
+.carousel-track {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+/* Slide carousel */
+.carousel-slide {
+    min-width: 100%; /* Tiap slide memenuhi seluruh lebar carousel */
+    transition: opacity 0.5s ease;
+    background-color: white;
+}
+
+/* Gambar di dalam slide */
+.carousel-slide img {
+    width: 100%; /* Gambar menyesuaikan dengan lebar slide */
+    height: 100%;/* Gambar menyesuaikan dengan lebar slide */
+    border-radius: 10px;
+    object-fit: cover; /* Gambar tidak akan melar */
+    background-color: transparent; /* Pastikan gambar tidak memiliki latar belakang putih */
+}
+
+/* Tombol navigasi carousel */
+.carousel-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    z-index: 100;
+    font-size: 1.5em; /* Perbesar ukuran teks tombol */
+    border-radius: 50%; /* Bentuk tombol menjadi lingkaran */
+}
+
+.carousel-button.left-btn {
+    left: 10px;
+}
+
+.carousel-button.right-btn {
+    right: 10px;
+}
+
+.carousel-button:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+.left-btn:hover, .right-btn:hover {
+    transform: scale(1.1) translateY(-50%); /* Efek hover memperbesar tombol */
+}
+
+/* Responsif untuk layar kecil */
+@media (max-width: 768px) {
+    .carousel {
+        width: 90%; /* Lebar carousel sedikit diperbesar untuk layar kecil */
+    }
+
+    .carousel-button {
+        font-size: 1.2em; /* Sesuaikan ukuran tombol untuk layar kecil */
+        padding: 8px;
+    }
+
+    .carousel-slide img {
+        width: 90%; /* Sesuaikan ukuran gambar untuk layar kecil */
+    }
+}
+
+@media (max-width: 480px) {
+    .carousel {
+        width: 100%; /* Lebar carousel menyesuaikan layar kecil */
+    }
+
+    .carousel-slide img {
+        width: 100%; /* Gambar memenuhi slide di layar yang sangat kecil */
+    }
+
+    .carousel-button {
+        font-size: 1em;
+        padding: 6px;
+    }
+}
